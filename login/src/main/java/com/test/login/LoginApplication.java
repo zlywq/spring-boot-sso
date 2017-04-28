@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-
+// mvn clean package -Dmaven.test.skip=true
 @SpringBootApplication
 @ComponentScan(basePackages = "com.test")
 public class LoginApplication implements ServletContextInitializer {

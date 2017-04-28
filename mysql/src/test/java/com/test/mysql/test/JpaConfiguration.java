@@ -30,9 +30,10 @@ public class JpaConfiguration {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?characterEncoding=utf8");
-        dataSource.setUsername("root");
-        dataSource.setPassword("12345678");
+        //dataSource.setUrl("jdbc:mysql://localhost:3306/DPSBdbsso?characterEncoding=utf8");
+        dataSource.setUrl("jdbc:mysql://192.168.0.104:13306/DPSBdbsso?characterEncoding=utf8");
+        dataSource.setUsername("user1");
+        dataSource.setPassword("aaa");
 
         return dataSource;
     }

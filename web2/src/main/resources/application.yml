@@ -1,5 +1,16 @@
 server:
   port: 8082
+  ssl:
+    key-alias: alias1
+    key-password: 123456
+    key-store: classpath:serverKeystore.jks
+    key-store-password: 123456
+#    key-store-provider: canOmit
+#    key-store-type: canOmit
+    trust-store: classpath:clientside_cacerts
+    trust-store-password: 123456
+#    trust-store-provider: canOmit
+#    trust-store-type: canOmit
   tomcat:
     uri-encoding: UTF-8
 
