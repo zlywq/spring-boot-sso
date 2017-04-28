@@ -1,0 +1,33 @@
+server:
+  port: 8443
+  ssl:
+    key-alias: aliasoauthlogin
+    key-password: 123456
+    key-store: classpath:serverKeystore.jks
+    key-store-password: 123456
+#    key-store-provider: canOmit
+#    key-store-type: canOmit
+#    trust-store: xxx
+#    trust-store-password: xxx
+#    trust-store-provider: canOmit
+#    trust-store-type: canOmit
+    # key-store: keystore.jks
+    # key-store-password: tc123456
+    # key-password: tc123456
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  datasource:
+      url: jdbc:mysql://mysqlt1:3306/DPSBdbsso?characterEncoding=utf8
+      username: user1
+      password: aaa
+  jpa:
+    database: MYSQL
+    show-sql: true
+  ## Hibernate ddl auto (validate|create|create-drop|update)
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect

@@ -1,0 +1,47 @@
+server:
+  port: 8082
+  ssl:
+    key-alias: alias1
+    key-password: 123456
+    key-store: classpath:serverKeystore.jks
+    key-store-password: 123456
+#    key-store-provider: canOmit
+#    key-store-type: canOmit
+    trust-store: classpath:clientside_cacerts
+    trust-store-password: 123456
+#    trust-store-provider: canOmit
+#    trust-store-type: canOmit
+  tomcat:
+    uri-encoding: UTF-8
+
+security:
+  ignored: /favicon.ico,/scripts/**,/styles/**,/images/**
+  sessions: ALWAYS
+  oauth2:
+      sso:
+        loginPath: /login
+      client:
+        clientId: ssoclient
+        clientSecret: ssosecret
+        accessTokenUri: https://localhost:8443/oauth/token
+        userAuthorizationUri: https://localhost:8443/oauth/authorize
+        clientAuthenticationScheme: form
+      resource:
+        jwt:
+          keyUri: https://localhost:8443/oauth/token_key
+
+securityconfig:
+  logoutsuccssurl: /tosignout
+  permitall: /rest/**,/re**
+  deniedpage: /deny
+  urlroles: /**/new/** = admin;
+            /**/edit/** = admin,editor;
+            /**/delete/** = admin
+
+zuul:
+  routes:
+    resource:
+      path: /resource/**
+      url: https://localhost:8083
+      stripPrefix: true
+      retryable:
